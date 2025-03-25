@@ -11,9 +11,7 @@ import { useState, useEffect } from "react";
      }, [count]);
  
      return (
-         <div className="card" style={{ textAlign: 'center' }}>
-             <button onClick={() => setCount(count + 1)}>Count {count}</button>
-         </div>
+        <button onClick={() => setCount(count + 1)}>Count {count}</button>
      );
  }
  
