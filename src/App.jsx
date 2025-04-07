@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Contador from '../contador' 
+import Contador from '../contador'
 import * as React from 'react';
 
 // Componentes de MUI
@@ -16,24 +16,19 @@ import Paper from '@mui/material/Paper';
 
 
 function App() {
+  // Estado para guardar la información
+  const [data, setData] = useState([]);
+  // URL de prueba
+  const url = "https://jsonplaceholder.typicode.com/users";
 
-  // Función por parte de MUI para agregar los datos a la tabla
-  function createData(nombre, apellido, edad) {
-    return { nombre, apellido, edad};
-  }
 
-  // Arreglo con los datos de las personas
-  const personas = [
-    { nombre: "Angel", apellido: "Ruiz", edad: 22 },
-    { nombre: "Ariel", apellido: "Sotomayor", edad: 21 },
-    { nombre: "David", apellido: "Santana", edad: 21 },
-    { nombre: "Antonio", apellido: "Medina", edad: 21 },
-    { nombre: "Javier", apellido: "Granados", edad: 21 },
-    { nombre: "Danna", apellido: "Butchart", edad: 22 }
-  ];
+  // Función useEffect para traer los datos de una API
+  useEffect(() => {
 
-  // Transformar los datos en un formato para la tabla
-  const rows = personas.map(persona => createData(persona.nombre, persona.apellido, persona.edad));
+    fetch(url)
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
 
   return (
     <>
@@ -47,7 +42,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Contador/>
+        <Contador />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -56,17 +51,23 @@ function App() {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Nombre</TableCell>
-                <TableCell>Apellido</TableCell>
-                <TableCell>Edad</TableCell>
+                <TableCell align="center">Id</TableCell>
+                <TableCell align="center">Nombre</TableCell>
+                <TableCell align="center">Usuario</TableCell>
+                <TableCell align="center">Correo electrónico</TableCell>
+                <TableCell align="center">Dirección</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell>{row.nombre}</TableCell>
-                  <TableCell>{row.apellido}</TableCell>
-                  <TableCell>{row.edad}</TableCell>
+              {data.map((user) => (
+                <TableRow
+                  key={user.id}
+                >
+                  <TableCell align="center">{user.id}</TableCell>
+                  <TableCell align="center">{user.name}</TableCell>
+                  <TableCell align="center">{user.username}</TableCell>
+                  <TableCell align="center">{user.email}</TableCell>
+                  <TableCell align="center">{user.address.city}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
