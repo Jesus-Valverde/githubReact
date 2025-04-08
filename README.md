@@ -1,12 +1,29 @@
-# React + Vite
+# Qué aprendieron.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Durante esta actividad, comprendí y apliqué los conceptos fundamentales de **React Router DOM**, una librería que permite manejar la navegación entre distintas vistas en una aplicación React sin recargar la página. 
 
-Currently, two official plugins are available:
+-   Configurar un router con `<BrowserRouter>`.
+    
+-   Crear rutas básicas utilizando `<Routes>` y `<Route>`.
+    
+-   Navegar entre componentes usando `<Link>` y `useNavigate`.
+    
+-   Entender cómo funcionan las rutas dinámicas.
+    
+-   Crear una homepage funcional y visualmente atractiva.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Qué dificultades encontraron.
 
-## Expanding the ESLint configuration
+- Al principio, confundí `<Routes>` con `<Route>` y algunos componentes no se renderizaban correctamente.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Tuve problemas al navegar con botones porque no conocía `useNavigate`.
+
+- El enrutamiento no funcionaba hasta que me di cuenta de que `App.jsx` debía estar dentro de `<BrowserRouter>`.
+
+# HeadingCómo resolvieron el enrutamiento.
+
+- Revisé la documentación oficial de React Router y ejemplos en línea.
+
+- Hice pruebas cambiando el orden de los elementos hasta encontrar el error.
+
+- Consulté en foros y con compañeros, y así entendí mejor la diferencia entre navegación declarativa (`<Link>`) y programática (`useNavigate`).
